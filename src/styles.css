@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --softBlue: hsl(215, 51%, 70%);
+  --cyan: hsl(178, 100%, 50%);
+  --mainBg: hsl(217, 54%, 11%);
+  --cardBg: hsl(216, 50%, 16%);
+  --line: hsl(215, 32%, 27%);
+  --white: hsl(0, 0%, 100%);
+}
+
+body {
+	font-size:18px;
+	background-color:var(--mainBg);
+  color:var(--softBlue);
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-image {
+  cursor: pointer;
+  position: relative;
+}
+.card-image::before{
+  content: "";
+  position: absolute;
+  inset: 0;           
+  border-radius: inherit; 
+  transition: all 200ms ease-in;                  
+}
+
+.card-image:hover::before{
+  background-color:var(--cyan);
+  opacity: .5;
+  border-radius: inherit; 
+}
+.card-image::after{
+  content: url('../images/icon-view.svg');                
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  visibility: hidden;   
+  transition: all 200ms ease-in;  
+  border-radius: inherit;    
+}
+.card-image:hover::after {    
+  visibility: visible;   
+  border-radius: inherit;  
+}
+
